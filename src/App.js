@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import {  Container } from "semantic-ui-react";
+import { BrowserRouter as Router,Route } from "react-router-dom";
+import YaziListesi from "./components/YaziListesi";
+import YaziDetayi from "./components/YaziDetayi";
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Router>
+    <div className="main_wrapper">
+      <header></header>
+      <Container className="post-list ui raised very padded text container segment">
+      <Route path="/" exact component={YaziListesi}/>
+      <Route path="/posts/:id" component={YaziDetayi}/>
+      </Container>
     </div>
+
+    </Router>
   );
 }
 
